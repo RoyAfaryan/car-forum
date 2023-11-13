@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifydb2a13b9e7ca4-staging-42539-authRole",
+      "UnauthRoleArn": "arn:aws:iam::506237277611:role/amplify-amplifydb2a13b9e7ca4-staging-42539-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::506237277611:role/amplify-amplifydb2a13b9e7ca4-staging-42539-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-amplifydb2a13b9e7ca4-staging-42539-deployment",
+      "UnauthRoleName": "amplify-amplifydb2a13b9e7ca4-staging-42539-unauthRole",
+      "StackName": "amplify-amplifydb2a13b9e7ca4-staging-42539",
+      "StackId": "arn:aws:cloudformation:us-west-1:506237277611:stack/amplify-amplifydb2a13b9e7ca4-staging-42539/b3852620-81dc-11ee-aed8-061715352b85",
+      "AmplifyAppId": "d2cd1jzputc82a"
+    },
+    "categories": {
+      "auth": {
+        "carforum8859dcd6": {}
+      }
+    }
+  }
+}
