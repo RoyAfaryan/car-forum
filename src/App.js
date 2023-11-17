@@ -3,7 +3,7 @@ import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
 import { Button, Flex, Heading, Text, TextField, View, withAuthenticator, Image } from "@aws-amplify/ui-react";
 import { generateClient } from '@aws-amplify/api';
-import { createPost } from './graphql/mutations.js';
+import * as mutations from './graphql/mutations.js';
 
 const client = generateClient();
 
@@ -16,18 +16,17 @@ function App({ signOut }) {
   const handleCreatePost = async () => {
     try {
       
+      const postDetails = {
+        title: postTitle,
+        content: postContent
+        
+      };
+
       const newPost = await client.graphql({
-        mutation: createPost,
-        variables: {
-          input: {
-            "title": postTitle,
-            "content": postContent,
-            // Add other fields as needed
-          }
-        }
+        mutation: mutations.createPost,
+        variables: {input: postDetails}
       });
 
-      
 
       // Update the state to include the new post
       setPosts(prevPosts => [...prevPosts, newPost.data.createPost]);
