@@ -17,13 +17,22 @@ function App({ signOut }) {
     try {
       
       const postDetails = {
+        id:'1',
         title: postTitle,
-        content: postContent
+        content: postContent,
+        image_url: "",
+        created_at: "",
+        userID: "",
+        Comments:"",
+        createdAt:"",
+        updatedAt:"",
+       __typename:""
+
         
       };
 
       const newPost = await client.graphql({
-        mutation: mutations.createPost,
+        query: mutations.createPost,
         variables: {input: postDetails}
       });
 
