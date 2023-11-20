@@ -3,7 +3,7 @@ import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
 import { Button, Flex, Heading, Text, TextField, View, withAuthenticator, Image } from "@aws-amplify/ui-react";
 import { generateClient } from '@aws-amplify/api';
-import * as mutations from './graphql/mutations.js';
+import * as queries from './graphql/queries.js';
 
 const client = generateClient();
 
@@ -15,37 +15,25 @@ function App({ signOut }) {
 
   const handleCreatePost = async () => {
     try {
-      
-      const postDetails = {
-        id:'1',
-        title: postTitle,
-        content: postContent,
-        image_url: "",
-        created_at: "",
-        userID: "",
-        Comments:"",
-        createdAt:"",
-        updatedAt:"",
-       __typename:""
 
-        
-      };
-
-      const newPost = await client.graphql({
-        query: mutations.createPost,
-        variables: {input: postDetails}
+      // Simple query
+      const oneTodo = await client.graphql({
+        query: queries.getPost,
+        variables: { id: 'commodoametenim - fad7a652-9337-4caf-b81b-30818de2e49f' }
       });
+
+      console.log(oneTodo)
+
+      
 
 
       // Update the state to include the new post
-      setPosts(prevPosts => [...prevPosts, newPost.data.createPost]);
 
       // Clear the text boxes
       setPostTitle('');
       setPostContent('');
 
       // Log the new post to the console
-      console.log("New post created:", newPost);
     } catch (error) {
       // Handle error (e.g., show an error message)
       console.error("Error creating post:", error);
