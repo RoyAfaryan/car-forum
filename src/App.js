@@ -5,7 +5,7 @@ import { Button, Heading, Text, TextField, withAuthenticator } from "@aws-amplif
 import { generateClient } from '@aws-amplify/api';
 import * as queries from './graphql/queries.js';
 import * as mutations from './graphql/mutations.js';
-import { getCurrentUser } from '@aws-amplify/auth';
+import { getCurrentUser } from 'aws-amplify/auth';
 
 const client = generateClient();
 
