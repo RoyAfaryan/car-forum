@@ -1,0 +1,25 @@
+.home-button {
+	padding: 20px;
+}
+
+.create-post {
+	margin-top: 7.5%;
+	display: grid;
+	justify-content: center;
+}
+
+.create-post .amplify-textareafield {
+	margin-top: 20px;
+	width: 750px;
+}
+
+.create-post .amplify-button {
+	justify-self: right;
+	text-align: center;
+	width: 150px;
+	margin-top: 30px;
+}
+
+input#amplify-id-\:r6\: {
+	height: 200px;
+}
