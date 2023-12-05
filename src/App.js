@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
-import { Button, Heading, Text, TextField, withAuthenticator } from "@aws-amplify/ui-react";
+import { Button, Heading, Text, TextField, withAuthenticator} from "@aws-amplify/ui-react";
 import { generateClient } from '@aws-amplify/api';
 import * as queries from './graphql/queries.js';
 import * as mutations from './graphql/mutations.js';
 import { getCurrentUser } from '@aws-amplify/auth';
+import Home from './pages/Home.js';
+import Nav from './pages/Nav.js';
+import NewPost from './pages/NewPost.js';
+import ViewPost from './pages/ViewPost.js';
 
 const client = generateClient();
 
@@ -14,6 +18,9 @@ function App({ signOut }) {
   const [postContent, setPostContent] = useState('');
   const [posts, setPosts] = useState([]);
   const [userId, setUserId] = useState(null);
+  const [currentPage, setCurrentPage] = useState('home');
+  const [selectedPostId, setSelectPostID] = useState(null);
+
 
   const handleCreatePost = async () => {
     try {
@@ -57,39 +64,25 @@ function App({ signOut }) {
     fetchPosts();
   }, []);
 
+  const handlePageChange = async (page, postID = null) => {
+    setCurrentPage(page);
+    if (postID) {
+      setSelectPostID(postID);
+    }
+  };
+
   return (
-    <div>
-      <h1>Hello World!</h1>
+    <div className="App"> 
+      <Nav signOut={signOut} handlePageChange={handlePageChange}/>
 
-      {/* Form for creating a new post */}
-      <div>
-        <TextField
-          label="Post Title"
-          value={postTitle}
-          onChange={(e) => setPostTitle(e.target.value)}
-        />
-        <TextField
-          label="Post Content"
-          value={postContent}
-          onChange={(e) => setPostContent(e.target.value)}
-        />
-        <Button onClick={handleCreatePost}>Create Post</Button>
-      </div>
+      {currentPage === 'home' && (posts.map(post => (<Home key={post.id} post={post} handlePageChange={handlePageChange}/>)))}
 
-      {/* Display created posts */}
-      <div>
-        <Heading>Created Posts</Heading>
-        {posts.map(post => (
-          <div key={post.id}>
-            <Heading>{post.title}</Heading>
-            <Text>{post.content}</Text>
-          </div>
-        ))}
-      </div>
+      {currentPage === 'new_post' && (<NewPost/>)}
 
-      <Button onClick={signOut}>Sign Out</Button>
+      {currentPage === 'view_post' && (<ViewPost postID={selectedPostId} />)}
     </div>
   );
 }
 
 export default withAuthenticator(App);
+
