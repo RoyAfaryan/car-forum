@@ -1,0 +1,55 @@
+.create-post {
+	display: grid;
+	place-content: center;
+	margin-top: 7.5%;
+}
+
+.create-post .amplify-input {
+	border-color: black;
+	color: white;
+}
+
+.create-post .amplify-input::placeholder {
+	color: rgba(255, 255, 255, 0.25);
+}
+
+.create-post .amplify-textarea {
+	border-color: black;
+	color: white;
+}
+
+.create-post .amplify-textarea::placeholder {
+	color: rgba(255, 255, 255, 0.25);
+}
+
+.create-post .amplify-textareafield {
+	margin-top: 20px;
+	width: 750px;
+}
+
+.create-post .amplify-button {
+	justify-self: right;
+	text-align: center;
+	width: 150px;
+	margin-top: 30px;
+	background-color: black;
+	color: white;
+	border: none;
+}
+
+.create-post .amplify-button:hover {
+	opacity: 0.8;
+}
+
+.create-post .amplify-label {
+	color: white;
+}
+
+input#amplify-id-\:r6\: {
+	height: 200px;
+}
+
+.notification-container {
+	top: 90px;
+	padding-bottom: 10px;
+}
