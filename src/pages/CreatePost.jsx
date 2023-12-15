@@ -45,6 +45,9 @@ function CreatePost() {
 
 	const handleCreatePost = async () => {
 		try {
+			if (!postTitle.trim() || !postContent.trim()) {
+				throw new Error("Post title and content cannot be empty");
+			}
 			// Create a new post
 			const newPost = await client.graphql({
 				query: mutations.createPost,

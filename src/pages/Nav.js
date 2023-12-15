@@ -29,7 +29,7 @@ const Nav = ({ signOut, handlePageChange }) => {
   return (
       <div className="Nav">
         <header className="navbar">
-          <div className="logo">Car Forum Project</div>
+          <div className="logo">Car Forum</div>
           <div className="search-bar">
             <input type="text" placeholder="Search" />
           </div>
@@ -44,7 +44,6 @@ const Nav = ({ signOut, handlePageChange }) => {
               <Link to="../">
                 <p>Home</p>
               </Link>
-              <a href="#">Account</a>
               <Link to="../create-post">
                 <p>Create Post</p>
               </Link>

@@ -19,7 +19,9 @@ body {
 }
 
 .navbar {
-   background-color: #33333349;
+   background-image: url('../../../public/navbar_background.jpeg');
+   background-position: center;
+   background-size: 100%;
    display: flex;
    align-items: center;
    height: 100%;
@@ -159,14 +161,17 @@ body {
 
 .post-title {
    font-size: 1.5em;
-   margin-bottom: 5px;
+   margin-top: -10px;
+   margin-bottom: 0px;
    font-family: 'Futura', 'Arial Narrow', Arial, sans-serif;
 }
 
 .post-details {
-   font-size: 1em;
+   font-size: .8em;
    margin-bottom: 5px;
+   margin-top: 0px;
    font-family: 'Futura', 'Arial Narrow', Arial, sans-serif;
+   color: #cec0c08f
 }
 
 .footer {

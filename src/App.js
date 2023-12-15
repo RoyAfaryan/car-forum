@@ -29,7 +29,12 @@ function App({ signOut }) {
 		// Fetch existing posts when the component mounts
 		const fetchPosts = async () => {
 			const result = await client.graphql({ query: queries.listPosts });
-			setPosts(result.data.listPosts.items);
+			setPosts(result.data.listPosts.items.sort((a, b) => {
+					const dateA = new Date(a.createdAt);
+					const dateB = new Date(b.createdAt);
+					return dateB - dateA;
+				}
+			));
 		};
 
 		fetchPosts();
